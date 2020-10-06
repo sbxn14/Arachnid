@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
+    #region movement
     [SerializeField, Range(0f, 100f)]
     float moveSpeed = 15f;
     [SerializeField, Range(0f, 100f)]
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour
     float minGroundDotProduct;
 
     Rigidbody body;
+    #endregion
 
     void OnValidate()
     {
@@ -51,6 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         body = GetComponent<Rigidbody>();
         body.useGravity = false;
+
         OnValidate();
     }
 
